@@ -39,25 +39,41 @@ function onImageClick(evt){
         return;
     }
     const instance = basicLightbox.create(`
-    <img src="${evt.target.dataset.source}" width="800" height="600">
-`)
+    <img src="${evt.target.dataset.source}" width="800" height="600">`,
+    //  {onShow:(instance)=>{window.addEventListener('keydown',onEsc)}},
+    //  {onClose:(instance)=>{window.removeEventListener('keydown',onEsc)}}
+    )
 
 instance.show()
+// const onEsc=function(e){
+//     if (e.key === "Escape") {
+//         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
+//         document.querySelector('.basicLightbox').remove();
+//     } 
+// }
 }
 
+// document.addEventListener("keydown", (e) => {
+//     const visible = basicLightbox.visible();
+//     console.log(e);
+  
+//     if (visible===true && e.key === "Escape") {
+//         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
+//         document.querySelector('.basicLightbox').remove();
+//     }
+// })
 
-document.addEventListener("keydown", closeImgEsc);
+// // document.addEventListener("keydown", (e) => {
+// //     const visible = basicLightbox.visible();
+// //     console.log(e);
+  
+// //     if (visible===true && e.key === "Escape") {
+// //         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
+// //         document.querySelector('.basicLightbox').remove();
+// //     }
+// // });
 
-function closeImgEsc(event) {
-    const visible = basicLightbox.visible();
-    
-    if (visible!==true){return}
-    else {
-        document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
-        document.querySelector('.basicLightbox').remove();
-    }
-    
-}
+
 
 
 
