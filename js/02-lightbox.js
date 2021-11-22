@@ -28,6 +28,6 @@ function crateItemGallery (galleryItems){
 }
 var lightbox = new SimpleLightbox('.gallery a');
 console.log(lightbox);
-lightbox.on()
+
 
  
