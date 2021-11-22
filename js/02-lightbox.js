@@ -9,9 +9,6 @@ const renderCard=crateItemGallery(galleryItems);
 
 gallery.insertAdjacentHTML('beforeend',renderCard)
 
-gallery.addEventListener('click',onImageClick)
-
-
 function crateItemGallery (galleryItems){
 
     return galleryItems.map(({preview,original,description})=>{
@@ -30,16 +27,7 @@ function crateItemGallery (galleryItems){
 
 }
 var lightbox = new SimpleLightbox('.gallery a');
+console.log(lightbox);
+lightbox.on()
 
-function onImageClick(evt){
-    evt.preventDefault();
-   
-}
-
- // const onEsc=function(e){
- //     if (e.key === "Escape") {
- //         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
- //         document.querySelector('.basicLightbox').remove();
- //     } 
- // }
-//  }
+ 

@@ -39,39 +39,19 @@ function onImageClick(evt){
         return;
     }
     const instance = basicLightbox.create(`
-    <img src="${evt.target.dataset.source}" width="800" height="600">`,
-    //  {onShow:(instance)=>{window.addEventListener('keydown',onEsc)}},
-    //  {onClose:(instance)=>{window.removeEventListener('keydown',onEsc)}}
+    <img src="${evt.target.dataset.source}" width="800" height="600">`,{onShow: (instance) => {document.addEventListener('keydown',closeImg)}}, {onClose: (instance) => {document.removeEventListener('keydown',closeImg)}}
+    
     )
 
-instance.show()
-// const onEsc=function(e){
-//     if (e.key === "Escape") {
-//         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
-//         document.querySelector('.basicLightbox').remove();
-//     } 
-// }
+instance.show();
+function closeImg (evt){
+    if(evt.key === "Escape"){
+        instance.close();
+    }
 }
 
-// document.addEventListener("keydown", (e) => {
-//     const visible = basicLightbox.visible();
-//     console.log(e);
   
-//     if (visible===true && e.key === "Escape") {
-//         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
-//         document.querySelector('.basicLightbox').remove();
-//     }
-// })
-
-// // document.addEventListener("keydown", (e) => {
-// //     const visible = basicLightbox.visible();
-// //     console.log(e);
-  
-// //     if (visible===true && e.key === "Escape") {
-// //         document.querySelector(".basicLightbox").classList.remove('basicLightbox--visible');
-// //         document.querySelector('.basicLightbox').remove();
-// //     }
-// // });
+}
 
 
 
